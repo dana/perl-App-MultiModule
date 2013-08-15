@@ -3,7 +3,8 @@ use 5.006;
 use strict;
 use warnings FATAL => 'all';
 use POSIX ":sys_wait_h";
-use Test::More;
+use Test::More skip_all => 'needs more development before I can unleash this on
+CPAN testers';
 use IPC::Transit;
 use Data::Dumper;
 

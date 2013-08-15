@@ -16,7 +16,7 @@ sub begin {
         done_testing();
         exit 0;
     }
-    $IPC::Transit::config_dir = "/tmp/app_multimodule_transit_$$";
+#    $IPC::Transit::config_dir = "/tmp/app_multimodule_transit_$$";
     unlink 'test.conf' if -e 'test.conf';
     system 'rm -rf state';
     clear_queue($_) for @test_queues;
@@ -42,14 +42,14 @@ sub run_program {
     my $args = shift or die "App::MultiModule::Test::run_program: args required";
     my @args = split /\s+/, $args;
 
-    push @args, '-T';
-    push @args, "/tmp/app_multimodule_transit_$$";
+#    unshift @args, '-Ilib', 'bin/MultiModule'; #, '-T';
+#    push @args, "/tmp/app_multimodule_transit_$$";
     my $new_pid = fork;
     die "App::MultiModule::Test::run_program: fork failed: $!"
         if not defined $new_pid;
     if(not $new_pid) {
         $ENV{PATH}="bin/:$ENV{PATH}";
-        exec 'MultiModule', @args;
+        exec 'bin/MultiModule', @args;
         exit;
     }
     sleep 1;
