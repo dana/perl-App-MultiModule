@@ -3,8 +3,7 @@ use 5.006;
 use strict;
 use warnings FATAL => 'all';
 use POSIX ":sys_wait_h";
-use Test::More skip_all => 'needs more development before I can unleash this on
-CPAN testers';
+use Test::More skip_all => 'needs more development before I can unleash this on CPAN testers';
 use IPC::Transit;
 use Data::Dumper;
 
@@ -30,7 +29,9 @@ my $config = {
 
             },
             StatelessProducer => {
-
+                extra_stuff => {
+                    extra => 'stuff',
+                }
             },
             OtherExternalModule => {
                 is_external => 1,

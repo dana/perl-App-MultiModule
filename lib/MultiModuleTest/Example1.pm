@@ -24,6 +24,16 @@ sub set_config {
             my $message = {
                 ct => $self->{state}->{ct}++,
                 outstr => $config->{outstr},
+                static_forwards => [
+                    [   {   transform => {
+                                some => 'transform',
+                            },
+                            forward => {
+                                qname => 'Example2',
+                            }
+                        }
+                    ]
+                ],
             };
             $self->emit($message);
         },

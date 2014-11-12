@@ -1,6 +1,7 @@
 package MultiModuleTest::OtherModule;
 
 use strict;use warnings;
+use Message::Transform qw(mtransform);
 use Data::Dumper;
 
 use parent 'App::MultiModule::Task';
@@ -25,6 +26,9 @@ sub message {
     $message->{module_pid} = $$;
     $self->debug('OtherModule message: ' . Data::Dumper::Dumper $message) if $self->{debug};
     $self->{state}->{most_recent} = $message->{my_ct};
+    if($self->{config}->{transform}) {
+        mtransform $message, $self->{config}->{transform};
+    }
     $self->emit($message);
 }
 
