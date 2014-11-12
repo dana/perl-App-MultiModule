@@ -1,4 +1,5 @@
 {{$NEXT}}
+    - Added tests for static forwards
 
 1.132270  2013-08-14 21:37:56 PST8PDT
     - Initial Release
