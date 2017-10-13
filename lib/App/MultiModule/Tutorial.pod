@@ -276,9 +276,11 @@ So here's an example run, copied from the bin/MultiModule perldoc:
  ...
 
 In another window:
+
  $ strans '{new_ct => 999}' Example1
 
 Back to the first window:
+
  Example2: received a message: 8 (howdy)
  Example2: received a message: 9 (howdy)
  Example2: received a message: 10 (howdy)
